@@ -1,2 +1,12 @@
 ---
 # tasks file for webserver
+- name: Install the package tomcat9
+  apt:
+    name: tomcat9
+    state: present
+
+- name: Synchronization using rsync protocol
+  synchronize:
+    src: /opt/target/
+    dest: /var/lib/tomcat9/webapps/
+  delegate_to: 130.193.41.143
